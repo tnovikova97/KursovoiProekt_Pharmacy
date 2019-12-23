@@ -1,29 +1,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-
-<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-
-<%@ page session="false" %>
-
-<!DOCTYPE html>
-<html lang="en">
+<%--
+  Created by IntelliJ IDEA.
+  User: Татьяна
+  Date: 23.12.2019
+  Time: 18:47
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
-    <title>Admin Page</title>
-    <link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
+    <head>
+        <title>Admin Page</title>
+    </head>
 <body>
-<div class="container">
-    <c:if test="${pageContext.request.userPrincipal.name != null}">
-        <form id="logoutForm" method="post" action="${contextPath}/logout">
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-        </form>
-        <h2>Admin Page ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Logout</a>
-        </h2>
-    </c:if>
-</div>
-
+<h1>
+    Add a Medicament
+</h1>
 
 <c:url var="addAction" value="/medicament/add"/>
 
@@ -157,19 +151,14 @@
             <td><a href="<c:url value='/remove/${med.id}' />" >Delete</a></td>
         </tr>
 
-        <%--        <td><a href="/edit${med.id}" >update</a></td>--%>
-        <%--        <td><a href="/remove/${med.id}" >update</a></td>--%>
+<%--        <td><a href="/edit${med.id}" >update</a></td>--%>
+<%--        <td><a href="/remove/${med.id}" >update</a></td>--%>
     </c:forEach>
     </tbody>
 </table>
 
 
 
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 
 </body>
 </html>

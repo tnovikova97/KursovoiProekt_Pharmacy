@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void save(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        Set<Role> roles = new HashSet<>();
+        Set<Role> roles = new HashSet<Role>();
         roles.add(roleDao.getOne(1L));
         user.setRoles(roles);
         userDao.save(user);
