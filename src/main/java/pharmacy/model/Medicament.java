@@ -9,22 +9,25 @@ package pharmacy.model;
 import javax.persistence.*;
 import java.sql.Date;
 
+import javax.persistence.*;
+import java.sql.Date;
+
 @Entity
 @Table
 public class Medicament {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
-    private Long id;
+    @Column(name = "id")
+    private int id;
 
-    @Column
+    @Column(name = "title")
     private String title;
 
-    @Column
+    @Column(name = "price")
     private int price;
 
-    @Column
+    @Column(name = "quantity")
     private int quantity;
 
     @Column(name = "date_start")
@@ -33,10 +36,10 @@ public class Medicament {
     @Column(name = "date_end")
     private Date dateEnd;
 
-    @Column
+    @Column(name = "company")
     private String company;
 
-    @Column
+    @Column(name = "description")
     private String description;
 
     public Medicament() {
@@ -52,11 +55,22 @@ public class Medicament {
         this.description = description;
     }
 
-    public Long getId() {
+    public Medicament(int id, String title, int price, int quantity, Date dateStart, Date dateEnd, String company, String description) {
+        this.id = id;
+        this.title = title;
+        this.price = price;
+        this.quantity = quantity;
+        this.dateStart = dateStart;
+        this.dateEnd = dateEnd;
+        this.company = company;
+        this.description = description;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

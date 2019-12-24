@@ -56,7 +56,7 @@
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
     <beans:bean id="medicamentService" class="pharmacy.service.MedicamentServiceImpl">
-        <beans:property name="medicamentDao" ref="medicamentDao"></beans:property>
+        <beans:property name="medicamentDao" ref="medicamentDao"/>
     </beans:bean>
     <context:component-scan base-package="pharmacy" />
 

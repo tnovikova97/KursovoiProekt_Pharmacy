@@ -44,18 +44,6 @@ public class MedicamentController {
         return "redirect:/medicament";
     }
 
-    @RequestMapping(value = "/medicament/insert", method = RequestMethod.POST)
-    public String newMedicament(@ModelAttribute("medicament") Medicament m){
-            this.medicamentService.addMedicament(m);
-        return "redirect:/medicament";
-    }
-
-    @RequestMapping(value = "/medicament/update", method = RequestMethod.POST)
-    public String updMedicament(@ModelAttribute("medicament") Medicament m){
-        this.medicamentService.updateMedicament(m);
-        return "redirect:/medicament";
-    }
-
     @RequestMapping("/remove/{id}")
     public String removeMedicament(@PathVariable("id") int id) {
         this.medicamentService.removeMedicament(id);
