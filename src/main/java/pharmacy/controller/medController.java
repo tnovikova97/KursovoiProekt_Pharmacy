@@ -26,27 +26,27 @@ public class medController {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String listCustomers(Model theModel) {
-        List<Medicament> theCustomers = medicamentService.listMedicament();
-        theModel.addAttribute("customers", theCustomers);
-        return "list-customers";
+        List<Medicament> medicament = medicamentService.listMedicament();
+        theModel.addAttribute("medicament", medicament);
+        return "listMedicament";
     }
 
     @RequestMapping(value = "/showForm", method = RequestMethod.GET)
     public String showFormForAdd(Model theModel) {
-        Medicament theCustomer = new Medicament();
-        theModel.addAttribute("customer", theCustomer);
-        return "customer-form";
+        Medicament medicament = new Medicament();
+        theModel.addAttribute("medicament", medicament);
+        return "medicamentForm";
     }
 
     @RequestMapping(value = "/saveCustomer", method = RequestMethod.POST)
-    public String saveCustomer(@ModelAttribute("customer") Medicament theCustomer) {
-        if (theCustomer.getId() == 0) {
+    public String saveCustomer(@ModelAttribute("medicament") Medicament medicament) {
+        if (medicament.getId() == 0) {
             // new medicament, add it
-            this.medicamentService.addMedicament(theCustomer);
+            this.medicamentService.addMedicament(medicament);
         }
         else {
             // existing medicament, call update
-            this.medicamentService.updateMedicament(theCustomer);
+            this.medicamentService.updateMedicament(medicament);
         }
         return "redirect:/med/list";
     }
@@ -54,9 +54,9 @@ public class medController {
     @RequestMapping(value = "/updateForm", method = RequestMethod.GET)
     public String showFormForUpdate(@RequestParam("id") int id,
                                     Model theModel) {
-        Medicament theCustomer = medicamentService.getMedicamentById(id);
-        theModel.addAttribute("customer", theCustomer);
-        return "customer-form";
+        Medicament medicament = medicamentService.getMedicamentById(id);
+        theModel.addAttribute("medicament", medicament);
+        return "medicamentForm";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)

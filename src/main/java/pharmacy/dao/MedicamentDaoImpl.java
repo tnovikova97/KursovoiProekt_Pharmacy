@@ -8,6 +8,7 @@ package pharmacy.dao;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -44,7 +45,8 @@ public class MedicamentDaoImpl implements MedicamentDao {
     @Override
     public List<Medicament> listMedicament() {
         Session session = this.sessionFactory.getCurrentSession();
-        List<Medicament> medicamentList = session.createQuery("from Medicament").list();
+//        List<Medicament> medicamentList = session.createQuery("from Medicament").list();
+        List<Medicament> medicamentList = session.createCriteria(Medicament.class).addOrder(Order.asc("title")).list();
         for (Medicament medicament : medicamentList) {
             logger.info("Medicament List: " + medicament);
         }
