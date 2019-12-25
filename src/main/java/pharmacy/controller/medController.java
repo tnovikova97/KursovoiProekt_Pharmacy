@@ -16,7 +16,9 @@ import org.springframework.web.servlet.ModelAndView;
 import pharmacy.model.Medicament;
 import pharmacy.service.MedicamentService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/med")
@@ -39,7 +41,7 @@ public class medController {
         return "medicamentForm";
     }
 
-    @RequestMapping(value = "/saveMedicament", method = RequestMethod.POST)
+    @RequestMapping(value = "/saveMedicament", method = RequestMethod.POST, produces = "text/plain;charset=UTF-8")
     public String saveMedicament(@ModelAttribute("medicament") Medicament medicament) {
         if (medicament.getId() == 0) {
             // new medicament, add it
@@ -100,12 +102,24 @@ public class medController {
         return "welcome";
     }
 
-//    @RequestMapping(value = "/sorterByQuantity", method = RequestMethod.GET)
-//    public String sorterByQuantity(Model theModel) {
-//        List<Medicament> medicament = medicamentService.getM();
-//        theModel.addAttribute("medicament", medicament);
-//        return "welcome";
-//    }
+    @RequestMapping(value = "/searchAdmin", method = RequestMethod.GET)
+    public String searchAdmin(Model theModel, @RequestParam(defaultValue = "") String title) {
+        theModel.addAttribute("medicament", medicamentService.findMedicamentByTitle(title));
+        return "listMedicament";
+    }
+
+
+    // put select tag
+
+    @ModelAttribute("company")
+    public Map<String, String> getCountryList() {
+        Map<String, String> company = new HashMap<String, String>();
+        company.put("Merck & Co Inc", "Merck & Co Inc");
+        company.put("GlaxoSmithKline Plc", "GlaxoSmithKline Plc");
+        company.put("Sanofi", "Sanofi");
+        company.put("Форте", "Форте");
+        return company;
+    }
 
 
 }

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -17,6 +17,9 @@
 
 </head>
 <body>
+
+<%@include file="_menu.jsp"%>
+
 <div class="container">
     <div class="col-md-offset-2 col-md-7">
         <h2 class="text-center">Управление списком продукци</h2>
@@ -69,7 +72,12 @@
                     <div class="form-group">
                         <label for="company" class="col-md-3 control-label">Компания</label>
                         <div class="col-md-9">
-                            <form:input path="company" cssClass="form-control" />
+<%--                            <form:input path="company" cssClass="form-control" />--%>
+                            <form:select path="company" >
+                                <form:option value="NONE" label="Выбрать" cssClass="form-control"/>
+<%--                                <form:option value="Фарм"/>--%>
+                                <form:options items="${company}"/>
+                            </form:select>
                         </div>
                     </div>
 

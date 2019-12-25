@@ -17,6 +17,10 @@
 </head>
 
 <body>
+
+<%@include file="_menu.jsp"%>
+
+<%--
 <div class="container">
     <c:if test="${pageContext.request.userPrincipal.name != null}">
         <form id="logoutForm" method="post" action="${contextPath}/logout">
@@ -26,10 +30,11 @@
         </h2>
     </c:if>
 </div>
+--%>
 
 <hr/>
 
-<sec:authorize access="hasRole('ROLE_USER')">you see</sec:authorize>
+
 
 <h2>Перейти на страницу управления продукции | <a href="${contextPath}/med/list">Лекарства</a></h2>
 
@@ -38,7 +43,7 @@
 
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="${contextPath}/resources/js/jquery-3.4.1.min.js"></script>
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 
 </body>

@@ -14,15 +14,38 @@
     <script src="<c:url value="/resources/js/bootstrap.min.js" />"></script>
 </head>
 <body>
+
+<%@include file="_menu.jsp"%>
+
 <div class="container">
+
+    <hr/>
+
     <div class="col-md-offset-1 col-md-10">
         <h2 style="width: 1000px" align="center">Управление списком продукции</h2>
         <hr style="width: 1000px"/>
 
-        <input type="button" value="Добавить лекартсво"
-               onclick="window.location.href='showForm'; return false;"
-               class="btn btn-primary" />  |  <a class="btn btn-primary" href="${contextPath}/admin">Вернуться на страницу администратора</a>
-        <br/><br/>
+
+
+        <div style="display:flex;">
+            <div>
+                <input type="button" value="Добавить лекартсво"
+                       onclick="window.location.href='showForm'; return false;"
+                       class="btn btn-primary" />  |  <a class="btn btn-primary" href="${contextPath}/welcome">Вернуться на главную</a>
+            </div>
+            <div style="margin-left: auto">
+                <form action="${contextPath}/med/searchAdmin" class="form-inline">
+                    <div class="form-group mb-2">
+                        <input type="text" class="form-control" name="title" placeholder="Поиск по названию лекарства"/>
+                        <input type="submit" value="Поиск" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <hr />
+
+
         <div class="panel panel-info" style="width: 1000px">
             <div class="panel-heading">
                 <div class="panel-title">Список лекарств</div>

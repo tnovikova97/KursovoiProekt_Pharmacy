@@ -21,8 +21,12 @@
 </head>
 <body>
 
+<%@include file="_menu.jsp"%>
+
 <div class="container">
 
+<%--    welcome --%>
+<%--
     <c:if test="${pageContext.request.userPrincipal.name != null}">
         <form id="logoutForm" method="POST" action="${contextPath}/logout">
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
@@ -31,7 +35,7 @@
         <h2>Здравствуй ${pageContext.request.userPrincipal.name} | <a onclick="document.forms['logoutForm'].submit()">Выйти</a>
         </h2>
     </c:if>
-
+    --%>
     <hr/>
 
 
@@ -45,6 +49,9 @@
                 <a class="btn btn-primary" href="${contextPath}/med/sorterByPrice">Сортировать по цене</a>
 
                 <a class="btn btn-primary" href="${contextPath}/med/sorterByQuantity">Сортировать по количеству</a>
+                <sec:authorize access="hasRole('ROLE_ADMIN')">
+                <a class="btn btn-warning" style="margin-left: 100px" href="${contextPath}/med/list">Редактировать</a>
+                </sec:authorize>
             </div>
 
             <div style="margin-left: auto">
@@ -101,7 +108,7 @@
 
 
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"/>
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 </body>
 </html>
