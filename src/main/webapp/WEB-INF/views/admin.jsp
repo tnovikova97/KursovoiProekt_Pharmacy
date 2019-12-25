@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
@@ -25,6 +26,10 @@
         </h2>
     </c:if>
 </div>
+
+<hr/>
+
+<sec:authorize access="hasRole('ROLE_USER')">you see</sec:authorize>
 
 <h2>Перейти на страницу управления продукции | <a href="${contextPath}/med/list">Лекарства</a></h2>
 
