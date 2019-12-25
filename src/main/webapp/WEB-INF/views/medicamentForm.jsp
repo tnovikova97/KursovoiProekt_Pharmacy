@@ -20,6 +20,7 @@
 <div class="container">
     <div class="col-md-offset-2 col-md-7">
         <h2 class="text-center">Управление списком продукци</h2>
+        <hr />
         <div class="panel panel-info">
             <div class="panel-heading">
                 <div class="panel-title">Добавить лекарство</div>
@@ -28,7 +29,7 @@
                 <form:form action="saveMedicament" cssClass="form-horizontal"
                            method="post" modelAttribute="medicament" >
 
-                    <!-- need to associate this data with customer id -->
+                    <!-- need to associate this data with medicament id -->
                     <form:hidden path="id" />
 
                     <div class="form-group">

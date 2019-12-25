@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import pharmacy.model.Medicament;
 import pharmacy.service.MedicamentService;
 
@@ -64,5 +65,47 @@ public class medController {
         medicamentService.removeMedicament(id);
         return "redirect:/med/list";
     }
+
+
+//    for users
+
+    @RequestMapping(value = "/listMedicament", method = RequestMethod.GET)
+    public String listMedicamentforUser(Model theModel) {
+        List<Medicament> medicament = medicamentService.listMedicament();
+        theModel.addAttribute("medicament", medicament);
+        return "welcome";
+    }
+
+    // sorter
+
+    @RequestMapping(value = "/sorterByPrice", method = RequestMethod.GET)
+    public String sorterByPrice(Model theModel) {
+        List<Medicament> medicament = medicamentService.sorterMedicamentByPrice();
+        theModel.addAttribute("medicament", medicament);
+        return "welcome";
+    }
+
+    @RequestMapping(value = "/sorterByQuantity", method = RequestMethod.GET)
+    public String sorterByQuantity(Model theModel) {
+        List<Medicament> medicament = medicamentService.sorterMedicamentByQuantity();
+        theModel.addAttribute("medicament", medicament);
+        return "welcome";
+    }
+
+    // search
+
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public String search(Model theModel, @RequestParam(defaultValue = "") String title) {
+        theModel.addAttribute("medicament", medicamentService.findMedicamentByTitle(title));
+        return "welcome";
+    }
+
+//    @RequestMapping(value = "/sorterByQuantity", method = RequestMethod.GET)
+//    public String sorterByQuantity(Model theModel) {
+//        List<Medicament> medicament = medicamentService.getM();
+//        theModel.addAttribute("medicament", medicament);
+//        return "welcome";
+//    }
+
 
 }

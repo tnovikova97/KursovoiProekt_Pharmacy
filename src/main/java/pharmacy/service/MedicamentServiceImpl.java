@@ -9,9 +9,11 @@ package pharmacy.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pharmacy.dao.MedDao;
 import pharmacy.dao.MedicamentDao;
 import pharmacy.model.Medicament;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -22,6 +24,13 @@ public class MedicamentServiceImpl implements MedicamentService {
 
     public void setMedicamentDao(MedicamentDao medicamentDao) {
         this.medicamentDao = medicamentDao;
+    }
+
+    @Autowired
+    private MedDao medDao;
+
+    public void setMedDao(MedDao medDao) {
+        this.medDao = medDao;
     }
 
     @Override
@@ -53,4 +62,34 @@ public class MedicamentServiceImpl implements MedicamentService {
     public void removeMedicament(int id) {
         this.medicamentDao.removeMedicament(id);
     }
+
+    // sorter
+
+    @Override
+    @Transactional
+    public List<Medicament> sorterMedicamentByPrice() {
+        return this.medicamentDao.sorterMedicamentByPrice();
+    }
+
+    @Override
+    @Transactional
+    public List<Medicament> sorterMedicamentByQuantity() {
+        return this.medicamentDao.sorterMedicamentByQuantity();
+    }
+
+    // search
+
+    @Override
+    @Transactional
+    public List<Medicament> findMedicamentByTitle(String title) {
+        return this.medDao.findByTitleLike('%'+title+'%');
+    }
+
+    @Override
+    @Transactional
+    public List<Medicament> getM() {
+        return this.medicamentDao.getM();
+    }
+
+
 }

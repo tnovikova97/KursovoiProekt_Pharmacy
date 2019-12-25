@@ -7,6 +7,7 @@ package pharmacy.service;
 
 import pharmacy.model.Medicament;
 
+import java.util.Date;
 import java.util.List;
 
 public interface MedicamentService {
@@ -20,5 +21,18 @@ public interface MedicamentService {
     public Medicament getMedicamentById(int id);
 
     public void removeMedicament(int id);
+
+//    sorter
+
+    public List<Medicament> sorterMedicamentByPrice();
+
+    public List<Medicament> sorterMedicamentByQuantity();
+
+    public List<Medicament> findMedicamentByTitle(String title);
+
+    //
+
+    public List<Medicament> getM();
+
 }
 

@@ -57,6 +57,7 @@
     </beans:bean>
     <beans:bean id="medicamentService" class="pharmacy.service.MedicamentServiceImpl">
         <beans:property name="medicamentDao" ref="medicamentDao"/>
+        <beans:property name="medDao" ref="medDao"/>
     </beans:bean>
     <context:component-scan base-package="pharmacy" />
 
@@ -65,5 +66,8 @@
     <beans:bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
         <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
     </beans:bean>
+
+
+
 
 </beans:beans>

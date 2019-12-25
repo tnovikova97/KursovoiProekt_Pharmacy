@@ -22,6 +22,14 @@
         <intercept-url pattern="/med/updateForm" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/med/delete" access="hasRole('ROLE_ADMIN')"/>
 
+        <intercept-url pattern="/med/listMedicament" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
+        <intercept-url pattern="/med/sorterByPrice" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
+        <intercept-url pattern="/med/sorterByQuantity" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
+
+        <intercept-url pattern="/med/search" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')"/>
+
+
+
 
 
 

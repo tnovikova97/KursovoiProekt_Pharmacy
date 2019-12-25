@@ -14,6 +14,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import pharmacy.model.Medicament;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
@@ -82,4 +84,29 @@ public class MedicamentDaoImpl implements MedicamentDao {
         logger.info("Medicament deleted successfully. Medicament Details: " + medicament);
 
     }
+
+    @Override
+    public List<Medicament> sorterMedicamentByPrice() {
+        Session session = this.sessionFactory.getCurrentSession();
+        List<Medicament> medicamentListByPrice = session.createCriteria(Medicament.class).addOrder(Order.asc("price")).list();
+        return medicamentListByPrice;
+    }
+
+    @Override
+    public List<Medicament> sorterMedicamentByQuantity() {
+        Session session = this.sessionFactory.getCurrentSession();
+        List<Medicament> medicamentListByQuantity = session.createCriteria(Medicament.class).addOrder(Order.desc("quantity")).list();
+        return medicamentListByQuantity;
+    }
+
+    @PersistenceContext
+    private EntityManager em;
+
+    @Override
+    public List<Medicament> getM() {
+        return em.createQuery("from Medicament where dateEnd > current_date and quantity > 1", Medicament.class)
+                .getResultList();
+    }
+
 }
+

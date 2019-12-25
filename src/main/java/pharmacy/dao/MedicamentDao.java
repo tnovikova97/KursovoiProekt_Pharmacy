@@ -10,7 +10,7 @@ import pharmacy.model.Medicament;
 
 import java.util.List;
 
-public interface MedicamentDao{
+public interface MedicamentDao {
 
     public void addMedicament(Medicament medicament);
 
@@ -21,4 +21,15 @@ public interface MedicamentDao{
     public Medicament getMedicamentById(int id);
 
     public void removeMedicament(int id);
+
+//    сортировки различные
+
+    public List<Medicament> sorterMedicamentByPrice();
+
+    public List<Medicament> sorterMedicamentByQuantity();
+
+    public List<Medicament> getM();
+
+
+
 }

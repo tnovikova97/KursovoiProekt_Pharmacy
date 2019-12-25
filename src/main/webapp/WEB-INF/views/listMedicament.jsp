@@ -16,8 +16,8 @@
 <body>
 <div class="container">
     <div class="col-md-offset-1 col-md-10">
-        <h2 align="center">Управление списком продукции</h2>
-        <hr />
+        <h2 style="width: 1000px" align="center">Управление списком продукции</h2>
+        <hr style="width: 1000px"/>
 
         <input type="button" value="Добавить лекартсво"
                onclick="window.location.href='showForm'; return false;"
@@ -40,15 +40,15 @@
                         <th style="width: 200px">Действия</th>
                     </tr>
 
-                    <!-- loop over and print our customers -->
+                    <!-- loop over and print medicament -->
                     <c:forEach var="med" items="${medicament}">
 
-                        <!-- construct an "update" link with customer id -->
+                        <!-- construct an "update" link with medicament id -->
                         <c:url var="updateLink" value="/med/updateForm">
                             <c:param name="id" value="${med.id}" />
                         </c:url>
 
-                        <!-- construct an "delete" link with customer id -->
+                        <!-- construct an "delete" link with medicament id -->
                         <c:url var="deleteLink" value="/med/delete">
                             <c:param name="id" value="${med.id}" />
                         </c:url>

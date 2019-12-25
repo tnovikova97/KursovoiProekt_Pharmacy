@@ -57,6 +57,13 @@
         <url-pattern>/med/saveMedicament</url-pattern>
         <url-pattern>/med/updateForm</url-pattern>
         <url-pattern>/med/delete</url-pattern>
+        <url-pattern>/welcome/med/listMedicament</url-pattern>
+        <url-pattern>/med/listMedicament</url-pattern>
+
+        <url-pattern>/med/sorterByQuantity</url-pattern>
+        <url-pattern>/med/sorterByPrice</url-pattern>
+
+        <url-pattern>/med/search</url-pattern>
     </servlet-mapping>
 
 
