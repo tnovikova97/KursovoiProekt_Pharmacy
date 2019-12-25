@@ -18,7 +18,7 @@
         <intercept-url pattern="/edit/{id}" access="hasRole('ROLE_ADMIN')"/>
 
         <intercept-url pattern="/med/list" access="hasRole('ROLE_ADMIN')"/>
-        <intercept-url pattern="/med/saveCustomer" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/med/saveMedicament" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/med/updateForm" access="hasRole('ROLE_ADMIN')"/>
         <intercept-url pattern="/med/delete" access="hasRole('ROLE_ADMIN')"/>
 

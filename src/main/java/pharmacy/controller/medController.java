@@ -25,7 +25,7 @@ public class medController {
     private MedicamentService medicamentService;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String listCustomers(Model theModel) {
+    public String listMedicament(Model theModel) {
         List<Medicament> medicament = medicamentService.listMedicament();
         theModel.addAttribute("medicament", medicament);
         return "listMedicament";
@@ -38,8 +38,8 @@ public class medController {
         return "medicamentForm";
     }
 
-    @RequestMapping(value = "/saveCustomer", method = RequestMethod.POST)
-    public String saveCustomer(@ModelAttribute("medicament") Medicament medicament) {
+    @RequestMapping(value = "/saveMedicament", method = RequestMethod.POST)
+    public String saveMedicament(@ModelAttribute("medicament") Medicament medicament) {
         if (medicament.getId() == 0) {
             // new medicament, add it
             this.medicamentService.addMedicament(medicament);
@@ -60,7 +60,7 @@ public class medController {
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public String deleteCustomer(@RequestParam("id") int id) {
+    public String deleteMedicament(@RequestParam("id") int id) {
         medicamentService.removeMedicament(id);
         return "redirect:/med/list";
     }

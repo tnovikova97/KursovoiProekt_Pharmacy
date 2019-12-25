@@ -25,7 +25,7 @@
                 <div class="panel-title">Добавить лекарство</div>
             </div>
             <div class="panel-body">
-                <form:form action="saveCustomer" cssClass="form-horizontal"
+                <form:form action="saveMedicament" cssClass="form-horizontal"
                            method="post" modelAttribute="medicament" >
 
                     <!-- need to associate this data with customer id -->
@@ -91,8 +91,8 @@
             </div>
             <div align="center">
             </div>
-            <a class="btn btn-primary" href="${contextPath}/med/list">Вернуться к списку лекарств</a>
         </div>
+        <a class="btn btn-primary" href="${contextPath}/med/list">Вернуться к списку лекарств</a>
     </div>
 
 

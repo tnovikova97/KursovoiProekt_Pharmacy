@@ -73,7 +73,6 @@ public class MedicamentDaoImpl implements MedicamentDao {
 //        }
 //        logger.info("Medicament deleted successfully, Medicament Details: " + medicament);
 
-
         Session session = this.sessionFactory.getCurrentSession();
         Medicament medicament = (Medicament) session.load(Medicament.class, new Integer(id));
         if (medicament != null) {
@@ -83,5 +82,4 @@ public class MedicamentDaoImpl implements MedicamentDao {
         logger.info("Medicament deleted successfully. Medicament Details: " + medicament);
 
     }
-
 }

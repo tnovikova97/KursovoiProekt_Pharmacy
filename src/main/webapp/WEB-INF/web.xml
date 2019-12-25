@@ -54,7 +54,7 @@
         <servlet-name>appServlet</servlet-name>
         <url-pattern>/medicament</url-pattern>
         <url-pattern>/med/list</url-pattern>
-        <url-pattern>/med/saveCustomer</url-pattern>
+        <url-pattern>/med/saveMedicament</url-pattern>
         <url-pattern>/med/updateForm</url-pattern>
         <url-pattern>/med/delete</url-pattern>
     </servlet-mapping>
